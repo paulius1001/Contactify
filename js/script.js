@@ -1,4 +1,6 @@
 $(document).ready(function () {
+// ========= Json failo duomenų išvedimas ========= // 
+    
     var myRequest = new XMLHttpRequest();
     myRequest.open('GET','contacts.json');
     myRequest.onload = function () {
@@ -6,7 +8,9 @@ $(document).ready(function () {
         var j;
         var myData = JSON.parse(myRequest.responseText);
         var myID = Object.keys(myData[0]);
-    
+        
+// === Json failo duomenų išvedimas į select laukelį == //  
+        
         for(i = 0; i < myData.length; i++){
             var sameCity;
                 if(myData[i].city != sameCity ){
@@ -14,15 +18,17 @@ $(document).ready(function () {
                     sameCity = myData[i].city;
                 } 
         }
+
+        
+// === Json failo duomenų išvedimas į lentelę laukelį == //           
     
         for(i = 0; i < myData.length; i++){
             $("#data").append("<tr><td>" + myData[i].name + "</td>" + "<td>" + myData[i].surname + "</td>" + "<td>" + myData[i].city + "</td>" + "<td>" + myData[i].email + "</td>" + "<td>" + myData[i].phone + "</td><td>Active</td></tr>"); 
             $("td:last-child").addClass("at"); 
             $("td:first-child").addClass("test");
-        }  
-           
+        }                 
         
-// ====  Filter =====        
+// ====  Filtro veikimo funkcija ===== //       
         
         $('.filter').click(function() { 
     
@@ -75,15 +81,14 @@ $(document).ready(function () {
 
                 } 
                }
-        });
-    
-  
-    
+        });  
+// ====  Filtro veikimo funkcija ===== //          
 };
-
     myRequest.send();
     
-// ===== Name sort =====     
+// ========= Json failo duomenų išvedimo pabaiga ========= //
+    
+// ===== Vardo rušiavimas pagal pirmą raide ASC DESC =====  //   
     
     $('.first').click(function() {
           $('.first').removeClass("desc"); 
@@ -137,11 +142,15 @@ $(document).ready(function () {
 
     });
     
+// ===== User data list =====  //       
+    
     $('.uContacts a').click(function() {
         $(this).toggleClass("open");
         $(".rotate").toggleClass("open");
         $(".list").toggleClass("open");
     }); 
+    
+// ===== Burger list =====  //     
     
      $(".burger").on('click', function(){
         $(".burger1").toggleClass("open");
