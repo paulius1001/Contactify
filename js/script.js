@@ -23,7 +23,7 @@ $(document).ready(function () {
 // === Json failo duomenų išvedimas į lentelę laukelį == //           
     
         for(i = 0; i < myData.length; i++){
-            $("#data").append("<tr><td>" + myData[i].name + "</td>" + "<td>" + myData[i].surname + "</td>" + "<td>" + myData[i].city + "</td>" + "<td>" + myData[i].email + "</td>" + "<td>" + myData[i].phone + "</td><td>Active</td></tr>"); 
+            $("#data").append("<tr><td>" + myData[i].name + "</td>" + "<td>" + myData[i].surname + "</td>" + "<td>" + myData[i].city + "</td>" + "<td>" + myData[i].email + "</td>" + "<td>" + myData[i].phone + "</td><td>Actions</td></tr>"); 
             $("td:last-child").addClass("at"); 
             $("td:first-child").addClass("test");
         }                 
